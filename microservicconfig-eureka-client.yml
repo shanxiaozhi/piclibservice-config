@@ -1,0 +1,71 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 7001  #设置端口
+
+spring:
+  profiles: dev
+  security:
+    user:
+      name: admin
+      password: a
+eureka:
+  instance:
+    hostname: eureka1 #设置名字
+  client:
+    #解决eureka启动报错
+    fetch-registry: false #要不要注册中心获取其他服务地址，解决eureka启动报错
+    register-with-eureka: false #是否当前客户端要注册到eureka
+    service-url:
+      defaultZone: http://admin:a@eureka1:7001/eureka,http://admin:a@eureka2:7002/eureka,http://admin:a@eureka3:7003/eureka
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的的时间，心跳时间
+    enable-self-preservation: false #关闭自我保护模式
+---
+server:
+  port: 7002  #设置端口
+
+spring:
+  profiles: dev
+  security:
+    user:
+      name: admin
+      password: a
+eureka:
+  instance:
+    hostname: eureka2 #设置名字
+  client:
+    #解决eureka启动报错
+    fetch-registry: false #要不要注册中心获取其他服务地址，解决eureka启动报错
+    register-with-eureka: false #是否当前客户端要注册到eureka
+    service-url:
+      defaultZone: http://admin:a@eureka1:7001/eureka,http://admin:a@eureka2:7002/eureka,http://admin:a@eureka3:7003/eureka
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的的时间，心跳时间
+    enable-self-preservation: false #关闭自我保护模式
+---
+server:
+  port: 7003  #设置端口
+
+spring:
+  profiles: dev3
+  security:
+    user:
+      name: admin
+      password: a
+eureka:
+  instance:
+    hostname: eureka3 #设置名字
+  client:
+    #解决eureka启动报错
+    fetch-registry: false #要不要注册中心获取其他服务地址，解决eureka启动报错
+    register-with-eureka: false #是否当前客户端要注册到eureka
+    service-url:
+      defaultZone: http://admin:a@eureka1:7001/eureka,http://admin:a@eureka2:7002/eureka,http://admin:a@eureka3:7003/eureka
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的的时间，心跳时间
+    enable-self-preservation: false #关闭自我保护模式
+
