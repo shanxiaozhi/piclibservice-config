@@ -1,0 +1,33 @@
+  
+spring:
+  profiles:
+    active:
+      - dev
+---
+
+
+server:
+  port: 9999
+  
+spring:
+  profiles: dev
+logging:
+  level:
+    org.springframework: debug
+    com.yc: debug
+eureka:
+  client:
+    register-with-eureka: false    #消费端不须要到eureka中注册
+    service-url:
+      defaultZone: http://admin:a@eureka1:7301/eureka
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: # 可以被压缩的类型
+        - text/xml
+        - application/xml
+        - application/json
+      min-request-size: 2048 # 超过2048的字节进行压缩
+  hystrix:
+    enabled: true
