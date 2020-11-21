@@ -7,12 +7,6 @@ server:
   port: 9101
 spring:
   profiles: dev
-eureka:
-  client:
-    register-with-eureka: false
-    service-url:
-      defaultZone: http://admin:a@eureka1:7001/eureka,http://admin:a@eureka2:7002/eureka,http://admin:a@eureka3:7003/eureka
-
 turbine:
   app-config: MICROSERVICE-PROVIDER,MICROSERVICE-PROVIDER-USER  #需要收集信息的服务名
   cluster-name-expression: new String("default")
