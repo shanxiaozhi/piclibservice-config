@@ -14,6 +14,15 @@ spring:
     user:
       name: admin
       password: a
-
+#公共前缀
+zuul:
+  routes:
+    product:
+      path: /pics-proxy/**
+      serviceId: piclibservice-provider
+      sensitiveHeaders:
+  ignored-services:
+    "*"
+  prefix: /yc-api    #公共前缀
 
 
