@@ -33,7 +33,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: 39.99.175.175
+          brokers: 39.105.183.155
   # 数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
